@@ -1,0 +1,27 @@
+/*
+
+# dirs
+!.vscode
+!requirements
+!scripts
+!src
+!tests
+
+# files
+!.gitattributes
+!.gitconfig
+!.gitignore
+!.python-version
+!MANIFEST.in
+!pyproject.toml
+!README.md
+!setup.py
+!tox.ini
+
+# __pycache__ generated on its own after running.
+# You COULD control it with PYTHONPYCACHEPREFIX
+# https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPYCACHEPREFIX
+# but I can't be arsed.
+__pycache__
+*.egg-info
+*.pyc

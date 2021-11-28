@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools >= 58.1.0", "wheel >= 0.37.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+# PROGRAM SETTINGS
+[tool.coverage.run]
+branch = true
+source = [
+    "unnamed",
+] # I don't know why this shouldn't be "src/unnamed", but that value doesn't work...
+parallel = true
+relative_files = true
+
+[tool.coverage.paths]
+source = ["src/unnamed", ".tox/py3*/lib/python3.*/site-packages/unnamed"]
+
+[tool.coverage.report]
+# fail_under = 100
+precision = 0
+# show_missing = True
+skip_covered = true
+skip_empty = true
+sort = "Cover"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+src_paths = ["src", "tests"]
+
+[tool.pytest.ini_options]
+addopts = "--durations-min=1 --stepwise --verbosity=2 --no-header"
+# addopts = "--durations=10 --durations-min=1 --stepwise --verbosity=1 --no-header"
+testpaths = ["tests"]
+markers = ["no_cover: some pytest-integration default mark that's not known?."]
