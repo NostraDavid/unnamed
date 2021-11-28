@@ -11,7 +11,7 @@ from logging.config import dictConfig
 
 from structlog import DropEvent, configure
 from structlog import get_logger as struct_get_logger
-from structlog import make_filtering_bound_logger, processors, threadlocal
+from structlog import processors, threadlocal
 from structlog._frames import _find_first_app_frame_and_name  # disable pylance
 from structlog.contextvars import merge_contextvars
 from structlog.stdlib import BoundLogger, LoggerFactory, ProcessorFormatter
@@ -57,7 +57,7 @@ def custom_log_filter(_: WrappedLogger, __: str, event_dict: EventDict):
 
 
 def add_app_name(_: WrappedLogger, __: str, event_dict: EventDict):
-    if not "app" in event_dict:
+    if "app" not in event_dict:
         event_dict["app"] = APP.NAME
     return event_dict
 

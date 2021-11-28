@@ -18,7 +18,7 @@ def log_function_call(func):
         except DropEvent:
             # DropEvent is a logger.py thing. If we catch it here separately we won't log a fail for this (which is correct behavior)
             pass
-        except Exception as exc:
+        except Exception:
             end = perf_counter()
             logger.exception("fail-function", runtime=(end - start), function=func.__name__)
         end = perf_counter()

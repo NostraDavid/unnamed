@@ -15,8 +15,10 @@ with (here / "src" / "unnamed" / "meta.py").open(mode="r") as meta_file:
 with (here / "README.md").open(mode="r") as readme_file:
     readme = readme_file.read()
 
+# https://packaging.python.org/guides/using-manifest-in/#how-files-are-included-in-an-sdist
 setup(
     author=meta["__author__"],
+    author_email=meta["__author_email__"],
     description=meta["__description__"],
     include_package_data=True,
     install_requires=requirements,
