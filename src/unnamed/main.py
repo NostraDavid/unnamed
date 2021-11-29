@@ -25,4 +25,5 @@ def cli(log_level: str):
 @log_function_call
 def main():
     # TODO(David) continue here
+    # TODO(David) find out how to use Python with Vulkan. If it turns out to be too hard, switch to OpenGL, I guess.
     print("yeet")
